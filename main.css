@@ -1,0 +1,81 @@
+:root{
+    --backColor: #222831;
+    --backColor2: #EEEEEE;
+    --textColor :#00ADB5;
+    --textColor2:#393E46;
+}
+
+body{
+    font-family: sans-serif;
+    background-color: var(--backColor2);
+    height: 100%;
+    margin: 0;
+}
+header {
+    width: 100%;
+    background-color: var(--textColor2);
+    color:var(--textColor);
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 20px ;
+}
+header h1 {
+    align-self: center;
+    font-size: 43px;
+    display: flex;
+    align-items: center;
+}   
+
+header ul {
+    list-style: none;
+    display: flex;
+    margin-top: 30px;
+    justify-content: space-around;
+}
+
+header ul li a{
+    font-size: 24px;
+    color:var(--backColor2);
+    text-decoration: none;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00ADB5;
+    height: 400px;
+}
+main h2{
+    font-size: 55px;
+}
+
+footer{
+padding-top: 20px;
+background-color: var(--textColor2);
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+height: 100px;
+}
+
+footer ul {
+    list-style: none;
+    display: flex;
+    margin-top: 30px;
+    justify-content: space-around;
+}
+
+footer span{
+    color: var(--textColor);
+}
+
+footer ul li a {
+    font-size: 24px;
+    color: var(--backColor2);
+    text-decoration: none;
+    padding: 40px;
+}
