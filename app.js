@@ -32,8 +32,7 @@ Employee.prototype.Net = function () {
 };
 
 // Render Data DOM
-let tbody = document.querySelector("tbody");
-
+//let tbody = document.querySelector("tbody");
 Employee.prototype.render = function () {
   //Create tr
   let tr = document.createElement("tr");
@@ -93,14 +92,62 @@ let sa = new Employee(
   "Image URL"
 );
 
-let oz= new Employee(1004, "Omar Zaid", "Development", "Senior", "Image URL");
+let oz = new Employee(1004, "Omar Zaid", "Development", "Senior", "Image URL");
 let ra = new Employee(1005, "	Rana Saleh", "Development", "Junior", "Image URL");
 let ha = new Employee(1006, "	Hadi Ahmad", "Finance", "Mid-Senior", "Image URL");
 
+console.log(sa.id);
 
-la.render();
-ta.render();
-sa.render();
-oz.render();
-ra.render();
-ha.render();
+// Lab 08
+
+// Select All Child Form
+let nameBox = document.querySelector("#full-name");
+let dep = document.querySelector("#dep");
+let level = document.querySelector("#level");
+let img = document.querySelector("#img");
+let btn = document.querySelector("#btn");
+
+function createIdNumber() {
+  const min = 1000; // minimum 4-digit number
+  const max = 9999; // maximum 4-digit number
+  const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+  return randomNum;
+}
+
+btn.addEventListener("click", function (e) {
+  e.preventDefault();
+  let id = createIdNumber();
+  console.log(nameBox.value);
+  let user = new Employee(id, nameBox.value, dep.value, level.value, img.value);
+
+  user.renderLab8();
+});
+
+// Rrnder by Event
+
+let cardBox = document.querySelector(".container");
+console.log(cardBox);
+Employee.prototype.renderLab8 = function () {
+  let card = document.createElement("div");
+  card.classList.add("card");
+
+  let details = document.createElement("div");
+  let divName = document.createElement("div");
+  let divDep = document.createElement("div");
+  let image = document.createElement("img");
+
+  //Style 
+  image.classList.add("img", "cover");
+  divName.classList.add("details");
+  divDep.classList.add("details");
+
+  image.setAttribute("src", this.image);
+  divName.textContent = `Name: ${this.fullName} - ID: ${this.id}`;
+  divDep.textContent = `Department: ${this.department} - Level: ${this.level}`;
+
+  details.appendChild(divName, divDep);
+  details.appendChild(divDep);
+  card.appendChild(image);
+  card.appendChild(details);
+  cardBox.appendChild(card);
+};
