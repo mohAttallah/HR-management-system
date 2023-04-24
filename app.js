@@ -96,8 +96,6 @@ let oz = new Employee(1004, "Omar Zaid", "Development", "Senior", "Image URL");
 let ra = new Employee(1005, "	Rana Saleh", "Development", "Junior", "Image URL");
 let ha = new Employee(1006, "	Hadi Ahmad", "Finance", "Mid-Senior", "Image URL");
 
-console.log(sa.id);
-
 // Lab 08
 
 // Select All Child Form
@@ -117,7 +115,6 @@ function createIdNumber() {
 btn.addEventListener("click", function (e) {
   e.preventDefault();
   let id = createIdNumber();
-  console.log(nameBox.value);
   let user = new Employee(id, nameBox.value, dep.value, level.value, img.value);
 
   user.renderLab8();
@@ -126,7 +123,7 @@ btn.addEventListener("click", function (e) {
 // Rrnder by Event
 
 let cardBox = document.querySelector(".container");
-console.log(cardBox);
+
 Employee.prototype.renderLab8 = function () {
   let card = document.createElement("div");
   card.classList.add("card");
@@ -136,7 +133,7 @@ Employee.prototype.renderLab8 = function () {
   let divDep = document.createElement("div");
   let image = document.createElement("img");
 
-  //Style 
+  //Style
   image.classList.add("img", "cover");
   divName.classList.add("details");
   divDep.classList.add("details");
@@ -150,4 +147,38 @@ Employee.prototype.renderLab8 = function () {
   card.appendChild(image);
   card.appendChild(details);
   cardBox.appendChild(card);
+
+  // Set Data to Local Storage
+  this.Salary();
+  let data = [this.id, this.fullName, this.department, this.level, this.image, this.salary];
+  setData(data);
 };
+
+// lab 09 (Local Storage)
+// if local Storage has Data Render here
+let numPerson = 0;
+function setData(data) {
+  numPerson++;
+  localStorage.setItem(numPerson, JSON.stringify(data));
+}
+
+// get Data from localStorage
+function getData() {
+  let user = [];
+  if (localStorage.length > 0) {
+    let keyIteam = 0;
+    for (let i = 0; i < localStorage.length; i++) {
+      keyIteam = localStorage.key(i);
+      console.log(JSON.parse(localStorage.getItem(i)));
+      user.push(
+        new Employee(...JSON.parse(localStorage.getItem(keyIteam)))
+      );
+    }
+    // render Data from LocalStorage 
+    for (let i = 0; i < user.length; i++){
+      user[i].renderLab8();
+    }
+  }
+}
+
+getData();
