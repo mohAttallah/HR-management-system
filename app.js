@@ -74,28 +74,56 @@ Employee.prototype.render = function () {
 };
 
 //test
-let gs = new Employee(
+let empGs = new Employee(
   1000,
   "Ghazi Samer",
-  "	Administration",
+  "Administration",
   "Senior",
-  "Image URL"
+  "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
 );
-
-let la = new Employee(1001, "Lana Ali", "	Finance", "Senior", "Image URL");
-let ta = new Employee(1002, "Tamara Ayoub", "Marketing", "Senior", "Image URL");
-let sa = new Employee(
+let empLa = new Employee(
+  1001,
+  "Lana Ali",
+  "	Finance",
+  "Senior",
+  "https://www.pngfind.com/pngs/m/538-5388823_png-file-svg-personal-information-girl-icon-transparent.png"
+);
+let empTa = new Employee(
+  1002,
+  "Tamara Ayoub",
+  "Marketing",
+  "Senior",
+  "https://www.pngfind.com/pngs/m/538-5388823_png-file-svg-personal-information-girl-icon-transparent.png"
+);
+let empSa = new Employee(
   1003,
   "	Safi Walid",
   "Administration",
   "Mid-Senior",
-  "Image URL"
+  "https://images.pexels.com/photos/3778966/pexels-photo-3778966.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
 );
 
-let oz = new Employee(1004, "Omar Zaid", "Development", "Senior", "Image URL");
-let ra = new Employee(1005, "	Rana Saleh", "Development", "Junior", "Image URL");
-let ha = new Employee(1006, "	Hadi Ahmad", "Finance", "Mid-Senior", "Image URL");
-
+let empOz = new Employee(
+  1004,
+  "Omar Zaid",
+  "Development",
+  "Senior",
+  "https://images.pexels.com/photos/2182974/pexels-photo-2182974.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+);
+let empRa = new Employee(
+  1005,
+  "	Rana Saleh",
+  "Development",
+  "Junior",
+  "https://www.pngfind.com/pngs/m/538-5388823_png-file-svg-personal-information-girl-icon-transparent.png"
+);
+let empHa = new Employee(
+  1006,
+  "	Hadi Ahmad",
+  "Finance",
+  "Mid-Senior",
+  "https://images.pexels.com/photos/756484/pexels-photo-756484.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+);
 // Lab 08
 
 // Select All Child Form
@@ -154,6 +182,8 @@ Employee.prototype.renderLab8 = function () {
   setData(data);
 };
 
+
+
 // lab 09 (Local Storage)
 // if local Storage has Data Render here
 let numPerson = 0;
@@ -180,5 +210,15 @@ function getData() {
     }
   }
 }
+// previous employees
 
-getData();
+empGs.renderLab8();
+empHa.renderLab8();
+empLa.renderLab8();
+empOz.renderLab8();
+empRa.renderLab8();
+empSa.renderLab8();
+empTa.renderLab8();
+
+
+// getData();
